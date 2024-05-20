@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'quran-font_react-quran';
+    src: url('./uthmanic_hafs.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
