@@ -7,19 +7,17 @@ import copy from 'rollup-plugin-copy'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 
-import pkg from './package.json'
-
 export default [
     {
         input: 'src/index.ts',
         output: [
             {
-                file: pkg.main,
+                file: 'dist/cjs/bundle.js',
                 format: 'cjs',
                 sourcemap: true,
             },
             {
-                file: pkg.module,
+                file: 'dist/esm/bundle.js',
                 format: 'esm',
                 sourcemap: true,
             },
