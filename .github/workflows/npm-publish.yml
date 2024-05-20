@@ -1,31 +1,25 @@
-name: Node.js Package
+name: Publish to NPM
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: '*'
+  release:
+    types: [created]
 
 jobs:
-  build-n-publish:
-    # if: github.event.pull_request.merged == true
-    if: ${{ github.ref == 'refs/heads/main' }}
-    name: "Build & Publish to NPM"
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Node.js
+      - name: Setup Node.js 18
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: "18.x"
           registry-url: 'https://registry.npmjs.org'
       - name: Install Dependencies
         run: npm ci
       - name: Build
         run: npm run build
       - name: Release
+        run: npm publish --provenance --access public
         env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        run: npm run semantic-release
+          NPM_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
