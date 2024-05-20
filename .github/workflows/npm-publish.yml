@@ -23,7 +23,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
       - name: Build
-        run: npm run build --experimental-json-modules
+        run: npm run build
       - name: Release
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
