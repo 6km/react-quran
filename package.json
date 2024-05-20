@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Easily add Quran viewer to your react applications!",
   "license": "MIT",
+  "author": {
+    "name": "Mohammed Taha",
+    "email": "gsft22221@gmail.com",
+    "url": "https://github.com/6km"
+  },
   "private": false,
   "source": "src/index.ts",
   "main": "dist/cjs/bundle.js",
