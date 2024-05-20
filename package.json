@@ -1,9 +1,9 @@
 {
   "name": "react-quran",
+  "version": "1.0.0",
   "description": "Easily add Quran viewer to your react applications!",
   "license": "MIT",
   "private": false,
-  "version": "0.0.0-development",
   "source": "src/index.ts",
   "main": "dist/cjs/bundle.js",
   "module": "dist/esm/bundle.js",
