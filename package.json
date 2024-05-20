@@ -3,7 +3,7 @@
   "description": "Easily add Quran viewer to your react applications!",
   "license": "MIT",
   "private": false,
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "source": "src/index.ts",
   "main": "dist/cjs/bundle.js",
   "module": "dist/esm/bundle.js",
@@ -14,7 +14,8 @@
     "lint": "eslint src",
     "format": "prettier src/ --write",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "semantic-release": "semantic-release"
   },
   "files": [
     "dist"
@@ -81,5 +82,9 @@
   },
   "resolutions": {
     "styled-components": "^5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/6km/react-quran.git"
   }
 }
