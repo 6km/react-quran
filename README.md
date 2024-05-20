@@ -1,15 +1,38 @@
 <center>
+<h3>بسم الله الرحمن الرحيم</h3>
+
+<br />
+
 <img src="images/banner.svg" style="border-radius: 6px;" />
-</center>
+
+<h3 style="font-size: 24px;"> React Quran</h3>
 
 Easily add Quran viewer to your react applications!
 
+</center>
+
+<br />
+<br />
+
+## Installation
+
+```bash
+# via npm
+npm install react-quran
+
+# via yarn
+yarn add react-quran
+
+# via pnpm
+pnpm add react-quran
+```
+
 ## Features
 
--   High-Quality Text Rendering: It doesn't use SVGs to render pages; it uses the official Hafs font of the mushaf.
--   Customizable Layout: Easily adjust the styles to fit your app needs.
--   Lightweight and Fast: Minimal impact on your app's performance.
--   TypeScript support
+-   ⚡ High-Quality Text Rendering: It doesn't use SVGs to render pages; it uses the official Hafs font of the Mushaf.
+-   🎨 Customizable Layout: Easily adjust the styles to fit your app needs.
+-   📦 Lightweight and Fast: Minimal impact on your app's performance.
+-   📘 TypeScript support: It comes with TypeScript support!
 
 ## Usage
 
