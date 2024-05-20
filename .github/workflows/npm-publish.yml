@@ -1,12 +1,15 @@
 name: Node.js Package
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
       - 'next'
 
 jobs:
   build-n-publish:
+    if: github.event.pull_request.merged == true
     name: "Build & Publish to NPM"
     runs-on: ubuntu-latest
     steps:
