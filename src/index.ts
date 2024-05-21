@@ -1,1 +1,1 @@
-export { default as ReadingView } from './components/ReadingView'
+export * from './components'

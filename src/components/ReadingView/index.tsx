@@ -41,7 +41,7 @@ const FlexDiv = styled.div`
 /**
  * Renders a page of quran
  */
-function ReadingView({
+export function ReadingView({
     page = 1,
     readingViewStyles = {},
     surahTitleStyles = {},
@@ -96,9 +96,9 @@ function ReadingView({
     )
 }
 
-export default React.memo(
+/* export default React.memo(
     ReadingView,
     (prevProps, nextProps) =>
         prevProps.fixedAspectRatio === nextProps.fixedAspectRatio &&
         getValidPageNumber(prevProps.page) == getValidPageNumber(nextProps.page),
-)
+) */

@@ -12,12 +12,12 @@ export default [
         input: 'src/index.ts',
         output: [
             {
-                file: 'dist/cjs/bundle.js',
+                file: 'dist/cjs/index.js',
                 format: 'cjs',
                 sourcemap: true,
             },
             {
-                file: 'dist/esm/bundle.js',
+                file: 'dist/esm/index.js',
                 format: 'esm',
                 sourcemap: true,
             },
@@ -29,10 +29,16 @@ export default [
             json(),
             typescript({ tsconfig: './tsconfig.json' }),
             postcss(),
-            terser(),
             copy({
                 targets: [{ src: 'src/fonts', dest: 'dist/' }],
             }),
+            terser(),
         ],
+        external: ['react', 'react-dom'],
     },
+    /* {
+        input: 'src/index.ts',
+        output: [{ file: 'dist/types.d.ts', format: 'es' }],
+        plugins: [dts()],
+    }, */
 ]

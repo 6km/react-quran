@@ -2,7 +2,7 @@ name: Publish to NPM
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   build:
@@ -19,6 +19,8 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Remove devDependencies
+        run: npm pkg delete devDependencies
       - name: Release
         run: npm publish --provenance --access public
         env:
