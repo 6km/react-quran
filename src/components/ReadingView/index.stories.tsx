@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import ReadingView from './index'
+import { ReadingView } from './index'
 import '../../fonts/index.css'
 
 const meta: Meta<typeof ReadingView> = {
