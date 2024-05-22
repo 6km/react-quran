@@ -26,7 +26,11 @@ export default [
             peerDepsExternal(),
             resolve(),
             commonjs(),
-            json(),
+            json({
+                compact: true,
+                preferConst: true,
+                namedExports: false
+            }),
             typescript({ tsconfig: './tsconfig.json' }),
             postcss(),
             copy({
