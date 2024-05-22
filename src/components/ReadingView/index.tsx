@@ -56,7 +56,7 @@ export function ReadingView({
     }, [page])
 
     const shouldCenter = pageNumber <= 2
-    const styles = useMemo(() => ({ width: '50%', ...readingViewStyles }), [readingViewStyles])
+    const styles = useMemo(() => ({ width: '440px', ...readingViewStyles }), [readingViewStyles])
 
     return (
         <ViewContainer style={styles} $fixedAspectRatio={fixedAspectRatio} $page={pageNumber}>
