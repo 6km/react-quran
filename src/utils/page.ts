@@ -1,5 +1,5 @@
 import { Verse } from '../types'
-import { groupBy, mergeProperty } from './array'
+import { groupBy } from './array'
 
 const PAGES_COUNT = 604
 
@@ -15,19 +15,19 @@ export function getValidPageNumber(number: number | string = 1) {
  * Convert an array of verses to an object of lines
  * [Verses]
  * to
- * { [lineNumber]: [Verses of the line] }
+ * { [lineNumber]: [words of the line] }
  */
 export function getLinesByVerses(verses: Verse[]) {
-    const newVerses = verses.map(({ words, ...verse }) => ({
-        ...verse,
-        words: words.map((w, index) => ({
-            ...w,
-            ...verse,
-            is_start: verse.verse_number === 1 && index === 0,
-        })),
-    }))
-
-    const mergedWords = mergeProperty(newVerses, 'words')
+    const mergedWords = verses.flatMap(({ w: words, v: verse_number, c: chapter_id }) => [
+        ...words.map((w, index) => {
+            return {
+                ...w,
+                chapter_id,
+                verse_number,
+                is_start: verse_number === 1 && index === 0,
+            }
+        }),
+    ])
 
     return groupBy(mergedWords, 'line')
 }

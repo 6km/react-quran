@@ -47,12 +47,12 @@ export function ReadingView({
     surahTitleStyles = {},
     fixedAspectRatio = true,
 }: ReadingViewProps) {
-    const [pageNumber, pageVerses, pageLines] = useMemo(() => {
+    const [pageNumber, pageLines] = useMemo(() => {
         const pageNumber = getValidPageNumber(page)
         const pageVerses: Verse[] = pagesData[numberToString(pageNumber)]
         const pageLines: { [key: string]: Word[] } = getLinesByVerses(pageVerses)
 
-        return [pageNumber, pageVerses, pageLines]
+        return [pageNumber, pageLines]
     }, [page])
 
     const shouldCenter = pageNumber <= 2
@@ -83,7 +83,7 @@ export function ReadingView({
                                     surahTitleStyles={surahTitleStyles}
                                 />
                             )}
-                            {shouldCenter && lineIndex === 0 && pageVerses[0].chapter_id <= 2 && <FlexDiv />}
+                            {shouldCenter && lineIndex === 0 && words[0].chapter_id <= 2 && <FlexDiv />}
                             {shouldAddBasmala && <Basmala />}
                             <Line page={pageNumber} words={words} lineKey={`Page${page}-AyahLine${lineIndex} `} />
                         </Fragment>
