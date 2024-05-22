@@ -3,9 +3,12 @@ import { CSSProperties } from 'react'
 export type PageDataType = { [pageIndex: string]: Verse[] }
 
 export interface Verse {
-    verse_number: number
-    chapter_id: number
-    words: Word[]
+    // Verse number
+    v: number
+    // Chapter id
+    c: number
+    // Verse words
+    w: Word[]
 }
 
 export type Word = {
