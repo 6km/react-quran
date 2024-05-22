@@ -95,10 +95,3 @@ export function ReadingView({
         </ViewContainer>
     )
 }
-
-/* export default React.memo(
-    ReadingView,
-    (prevProps, nextProps) =>
-        prevProps.fixedAspectRatio === nextProps.fixedAspectRatio &&
-        getValidPageNumber(prevProps.page) == getValidPageNumber(nextProps.page),
-) */
