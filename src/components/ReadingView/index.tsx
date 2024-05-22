@@ -36,6 +36,7 @@ const View = styled.div<{ $center: boolean }>`
  */
 const FlexDiv = styled.div`
     flex: 1;
+    flex-grow: 3;
 `
 
 /**
