@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo } from 'react'
+import { Fragment, useMemo } from 'react'
 import styled from 'styled-components'
 import _pagesData from '../../data/pages.json'
 import { PageDataType, ReadingViewProps, Verse, Word } from '../../types'
