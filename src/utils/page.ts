@@ -1,4 +1,4 @@
-import { Verse } from '../types'
+import { ProcessedWord, Verse } from '../types'
 import { groupBy } from './array'
 
 const PAGES_COUNT = 604
@@ -18,7 +18,7 @@ export function getValidPageNumber(number: number | string = 1) {
  * { [lineNumber]: [words of the line] }
  */
 export function getLinesByVerses(verses: Verse[]) {
-    const mergedWords = verses.flatMap(({ w: words, v: verse_number, c: chapter_id }) => [
+    const mergedWords: ProcessedWord[] = verses.flatMap(({ w: words, v: verse_number, c: chapter_id }) => [
         ...words.map((w, index) => {
             return {
                 ...w,

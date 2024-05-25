@@ -15,7 +15,9 @@ export type Word = {
     text_uthmani: string
     type: 'word' | 'end' | string
     line: number
+}
 
+export type ProcessedWord = Word & {
     verse_number: number
     chapter_id: number
     is_start: boolean
