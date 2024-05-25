@@ -29,7 +29,7 @@ export default [
             json({
                 compact: true,
                 preferConst: true,
-                namedExports: false
+                namedExports: false,
             }),
             typescript({ tsconfig: './tsconfig.json' }),
             postcss(),
@@ -40,9 +40,4 @@ export default [
         ],
         external: ['react', 'react-dom'],
     },
-    /* {
-        input: 'src/index.ts',
-        output: [{ file: 'dist/types.d.ts', format: 'es' }],
-        plugins: [dts()],
-    }, */
 ]
