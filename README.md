@@ -34,10 +34,10 @@ pnpm add react-quran
 ## Usage
 
 ```jsx
-// import styles; which imports the font of the quran.
+// Import styles; which imports the font of the quran.
 import 'react-quran/fonts/index.css'
 
-// import the ReadingView component
+// Import the ReadingView component.
 import { ReadingView } from 'react-quran'
 
 const App = () => {
