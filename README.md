@@ -3,7 +3,7 @@
 
 <br />
 
-<h3 style="font-size: 36px;"> React Quran</h3>
+<h3 style="font-size: 40px;"> React Quran</h3>
 
 Easily add Quran viewer to your react applications!
 
@@ -26,10 +26,10 @@ pnpm add react-quran
 
 ## Features
 
--   ⚡ High-Quality Text Rendering: It doesn't use SVGs to render pages; it uses the official Hafs font of the Mushaf.
--   🎨 Customizable Layout: Easily adjust the styles to fit your app needs.
--   📦 Lightweight and Fast: Minimal impact on your app's performance.
--   📘 TypeScript support: It comes with TypeScript support!
+- ⚡ **High-Quality Text Rendering:** Uses the official Hafs font of the Mushaf, avoiding the use of SVGs to ensure high-customizability.
+- 🎨 **Customizable Layout:** Easily adjust the styles to fit your app needs.
+- 📦 **Lightweight and Fast:** Designed to have a minimal impact on your application's performance.
+- 📘 **TypeScript Support:** Fully compatible with TypeScript.
 
 ## Usage
 
