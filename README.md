@@ -1,5 +1,10 @@
 <div align="center">
-<img src="images/banner.svg" style="border-radius: 6px;" />
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/banner-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="images/banner-light.svg">
+  <img src="images/banner-light.svg">
+</picture>
 
 <br />
 
