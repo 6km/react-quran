@@ -11,7 +11,6 @@ Easily add Quran viewer to your react applications!
 ---
 
 <br />
-<br />
 
 ## Installation
 
