@@ -74,3 +74,8 @@ export default App
 ## Contribute
 
 Contributions are welcome! Feel free to submit [issues](https://github.com/6km/react-quran/issues) or [pull requests](https://github.com/6km/react-quran/pulls).
+
+
+## License
+
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
