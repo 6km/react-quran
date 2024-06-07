@@ -1,20 +1,15 @@
 <div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/banner-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="images/banner-light.svg">
-  <img src="images/banner-light.svg">
-</picture>
-
-<br />
-
-<h3 style="font-size: 40px;"> React Quran</h3>
-
-Easily add Quran viewer to your react applications!
-
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="images/banner-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="images/banner-light.svg">
+    <img src="images/banner-light.svg">
+  </picture>
+  <br />
+  <h3>react-quran</h3>
+  Easily add Quran viewer to your react applications!
 </div>
-
----
+<br />
+<br />
 
 ## Installation
 
@@ -67,8 +62,6 @@ const App = () => {
 
 export default App
 ```
-
-<br />
 
 ## Contribute
 
