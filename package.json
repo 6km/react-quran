@@ -15,7 +15,6 @@
   "types": "dist/esm/index.d.ts",
   "scripts": {
     "build": "rimraf dist && rollup --config",
-    "watch": "parcel watch --no-source-maps",
     "lint": "eslint src",
     "format": "prettier src/ --write",
     "storybook": "storybook dev -p 6006",
