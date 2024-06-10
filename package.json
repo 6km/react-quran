@@ -1,28 +1,12 @@
 {
   "name": "react-quran",
-  "version": "1.2.0",
   "description": "Easily add Quran viewer to your react applications!",
-  "license": "MIT",
+  "version": "1.2.0",
   "author": {
     "name": "Mohammed Taha",
     "email": "gsft22221@gmail.com",
     "url": "https://github.com/6km"
   },
-  "private": false,
-  "source": "src/index.ts",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
-  "scripts": {
-    "build": "rimraf dist && rollup --config",
-    "lint": "eslint src",
-    "format": "prettier src/ --write",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "files": [
-    "dist"
-  ],
   "dependencies": {
     "styled-components": "^6.1.8"
   },
@@ -67,9 +51,6 @@
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
   },
-  "peerDependencies": {
-    "react": "^17.0.0"
-  },
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
@@ -80,11 +61,30 @@
       "require": "./dist/fonts/index.css"
     }
   },
-  "resolutions": {
-    "styled-components": "^5"
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "peerDependencies": {
+    "react": "^17.0.0"
   },
+  "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/6km/react-quran.git"
-  }
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  },
+  "scripts": {
+    "build": "rimraf dist && rollup --config",
+    "build-storybook": "storybook build",
+    "format": "prettier src/ --write",
+    "lint": "eslint src",
+    "storybook": "storybook dev -p 6006"
+  },
+  "source": "src/index.ts",
+  "types": "dist/esm/index.d.ts"
 }
