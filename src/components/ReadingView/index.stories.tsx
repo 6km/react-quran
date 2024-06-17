@@ -15,11 +15,11 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
     name: 'ReadingView',
     args: {
-        page: 2,
+        page: 595,
         readingViewStyles: {
             width: '512px',
             maxWidth: '100%',
-            backgroundColor: 'hsl(200 5% 90% / 1)',
+            backgroundColor: 'hsl(200 5% 50% / 1)',
             borderRadius: 8,
         },
         fixedAspectRatio: true,
