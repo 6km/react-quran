@@ -8,6 +8,7 @@
     "url": "https://github.com/6km"
   },
   "dependencies": {
+    "clipboard-copy": "^4.0.1",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
