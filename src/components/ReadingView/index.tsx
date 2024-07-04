@@ -1,3 +1,5 @@
+import clipboardCopy from 'clipboard-copy'
+
 import { Fragment, useMemo } from 'react'
 import styled from 'styled-components'
 import _pagesData from '../../data/pages.json'
@@ -40,6 +42,25 @@ const FlexDiv = styled.div`
 `
 
 /**
+ * Handles copy text event
+ * - remove line break after words. this is an issue on Chrome.
+ */
+const onQuranTextCopy = (event: React.ClipboardEvent<HTMLDivElement>) => {
+    const selection = document.getSelection()
+
+    const quranWordsToCopy = Array.from(document.querySelectorAll(`[data-word]`))
+        .filter(node => selection?.containsNode(node, true))
+        .map(wordElement => wordElement.innerHTML.trim())
+        .join(' ')
+        // .replace('&nbsp;', '')
+
+    if (typeof quranWordsToCopy == 'string' && quranWordsToCopy?.length > 0) {
+        event.preventDefault()
+        clipboardCopy(quranWordsToCopy)
+    }
+}
+
+/**
  * Renders a page of quran
  */
 export function ReadingView({
@@ -61,7 +82,7 @@ export function ReadingView({
 
     return (
         <ViewContainer style={styles} $fixedAspectRatio={fixedAspectRatio} $page={pageNumber}>
-            <View $center={shouldCenter}>
+            <View $center={shouldCenter} onCopy={onQuranTextCopy}>
                 {Object.values(pageLines).map((words, lineIndex, { length }) => {
                     const isStartOfSurah = words[0].is_start
 
