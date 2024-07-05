@@ -17,7 +17,11 @@ const ViewContainer = styled.div<{ $fixedAspectRatio: boolean; $page: number }>`
     width: 100%;
     ${props => (props.$fixedAspectRatio ? 'aspect-ratio: 1/1.32;' : props.$page <= 2 ? 'padding-bottom: 3cqi;' : '')}
     container-type: inline-size;
-    direction: rtl;
+    direction: rtl !important;
+
+    * {
+        direction: rtl !important;
+    }
 `
 
 const View = styled.div<{ $center: boolean }>`
