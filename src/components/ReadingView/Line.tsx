@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import QuranText from '../QuranText'
+import { CENTERED_PAGES_HORIZONTAL } from '../../commons/constants'
 
 const LineContainer = styled.div<{ $length: number; $center: boolean }>`
     word-break: keep-all !important;
@@ -29,7 +30,7 @@ export default function Line({
     words: { text_uthmani: string }[]
 }) {
     return (
-        <LineContainer $center={[1, 2, 602, 603, 604].includes(page)} $length={words.length}>
+        <LineContainer $center={CENTERED_PAGES_HORIZONTAL.includes(page)} $length={words.length}>
             {words.map((word: { text_uthmani: string }, wordIndex) => (
                 <QuranText key={`${lineKey}-Word${wordIndex}`} text={word.text_uthmani} />
             ))}

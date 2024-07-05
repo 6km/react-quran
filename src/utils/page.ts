@@ -1,14 +1,13 @@
+import { HAFS_PAGES_COUNT } from '../commons/constants'
 import { ProcessedWord, Verse } from '../types'
 import { groupBy } from './array'
-
-const PAGES_COUNT = 604
 
 /**
  * Convert a page number into a string and ensure it's a valid page number.
  */
 export function getValidPageNumber(number: number | string = 1) {
     const page = parseInt(String(number))
-    return Math.max(1, Math.min(PAGES_COUNT, page || 1))
+    return Math.max(1, Math.min(HAFS_PAGES_COUNT, page || 1))
 }
 
 /**
