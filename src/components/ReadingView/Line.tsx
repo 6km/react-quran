@@ -11,8 +11,7 @@ const LineContainer = styled.div<{ $length: number; $center: boolean }>`
     display: flex;
     justify-content: ${props => (props.$center ? 'center' : 'space-between')};
     margin-top: 0.5cqi;
-    // gap: ${props => (props.$center ? '0.6cqi' : '0.02cqi')};
-    gap: 0;
+    gap: ${props => (props.$center ? '0.6cqi' : '0.02cqi')};
     flex-wrap: nowrap;
 
     padding: 0px 3px;
