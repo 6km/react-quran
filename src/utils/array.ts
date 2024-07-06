@@ -5,7 +5,13 @@ export function groupBy<T>(values: T[], key: keyof T): Record<string, T[]> {
     return values.reduce(
         (acc, obj) => {
             const groupKey = obj[key]
-            acc[String(groupKey)] = [...(acc[String(groupKey)] || []), obj]
+            if (groupKey !== null && groupKey !== undefined) {
+                const groupKeyString = String(groupKey)
+                if (!acc[groupKeyString]) {
+                    acc[groupKeyString] = []
+                }
+                acc[groupKeyString].push(obj)
+            }
             return acc
         },
         {} as Record<string, T[]>,
