@@ -67,6 +67,21 @@ export default App
 
 Contributions are welcome! Feel free to submit [issues](https://github.com/6km/react-quran/issues) or [pull requests](https://github.com/6km/react-quran/pulls).
 
+## Thanks
+
+This could not have been achieved without the grace of Allāh, who helped us to do this, and then the valuable resources that help achieve digital solutions for Muslims and Islam. May allah bless them with His mercy. While not all resources used during development are remembered, here are the ones that come to mind.
+
+- [King Fahd Glorious Qur'an Printing Complex](https://qurancomplex.gov.sa/techquran/dev/)
+  for providing the Uthmani font of the Qur'ān and data of the verses and chapters.
+- [Quran.com](https://quran.com/)
+  for providing their useful API which is used to get verses of the Qur'ān line-by-line.
+- [Tanzil](https://tanzil.net/)
+  for providing a lot of valudable data such as Qur'ān text
+
+![resources](images/resources-logo.png "Logos of the resources")
+
+To conclude this, if you have any useful resources that can make this project better, please open an [issues](https://github.com/6km/react-quran/issues) and share it with us!
+
 ## License
 
 Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
