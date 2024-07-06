@@ -34,12 +34,12 @@ export default function Line({
     surahId: number
     lineId: number
 }) {
-    const c = isSubset(MEDINA_MUSHAF_CENTERED_LINES, [surahId, page, lineId])
-
-    console.log(surahId, page, lineId, words[0].text_uthmani)
+    const isCenteredInMushafAlMadinah = isSubset(MEDINA_MUSHAF_CENTERED_LINES, [surahId, page, lineId])
 
     return (
-        <LineContainer $center={CENTERED_PAGES_HORIZONTAL.includes(page) || c} $length={words.length}>
+        <LineContainer
+            $center={CENTERED_PAGES_HORIZONTAL.includes(page) || isCenteredInMushafAlMadinah}
+            $length={words.length}>
             {words.map((word: { text_uthmani: string }, wordIndex) => (
                 <QuranText key={`${lineKey}-Word${wordIndex}`} text={word.text_uthmani} />
             ))}
