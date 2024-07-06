@@ -26,10 +26,15 @@ pnpm add react-quran
 
 ## Features
 
-- ⚡ **High-Quality Text Rendering:** Uses the official Hafs font of the Mushaf, avoiding the use of SVGs to ensure high-customizability.
-- 🎨 **Customizable Layout:** Easily adjust the styles to fit your app needs. This is only intended to be used to implement dark and light mode.
-- 📦 **Lightweight and Fast:** Designed to have a minimal impact on your application's performance.
-- 📘 **TypeScript Support:** Fully compatible with TypeScript.
+- ⚡ **High-Quality Text Rendering:**
+  Uses the official Hafs font of the Mushaf, avoiding the use of SVGs to ensure high-customizability.
+- 🎨 **Customizable Layout:**
+  Easily adjust the styles to fit your app needs.
+  This is only intended to be used to implement dark and light mode.
+- 📦 **Lightweight and Fast:**
+  Designed to have a minimal impact on your application's performance.
+- 📘 **TypeScript Support:**
+  Fully compatible with TypeScript.
 
 ## Usage
 
