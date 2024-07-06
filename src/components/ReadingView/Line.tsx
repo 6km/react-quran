@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import QuranText from '../QuranText'
-import { CENTERED_PAGES_HORIZONTAL } from '../../commons/constants'
+import { CENTERED_PAGES_HORIZONTAL, MEDINA_MUSHAF_CENTERED_LINES } from '../../commons/constants'
+import { isSubset } from '../../utils/array'
 
 const LineContainer = styled.div<{ $length: number; $center: boolean }>`
     word-break: keep-all !important;
@@ -24,13 +25,21 @@ export default function Line({
     page,
     words,
     lineKey,
+    surahId,
+    lineId,
 }: {
     page: number
     lineKey: string
     words: { text_uthmani: string }[]
+    surahId: number
+    lineId: number
 }) {
+    const c = isSubset(MEDINA_MUSHAF_CENTERED_LINES, [surahId, page, lineId])
+
+    console.log(surahId, page, lineId, words[0].text_uthmani)
+
     return (
-        <LineContainer $center={CENTERED_PAGES_HORIZONTAL.includes(page)} $length={words.length}>
+        <LineContainer $center={CENTERED_PAGES_HORIZONTAL.includes(page) || c} $length={words.length}>
             {words.map((word: { text_uthmani: string }, wordIndex) => (
                 <QuranText key={`${lineKey}-Word${wordIndex}`} text={word.text_uthmani} />
             ))}

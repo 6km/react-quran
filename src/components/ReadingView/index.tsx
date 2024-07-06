@@ -90,6 +90,7 @@ export function ReadingView({
             <View $center={shouldCenter} onCopy={onQuranTextCopy}>
                 {Object.values(pageLines).map((words, lineIndex, { length }) => {
                     const isStartOfSurah = words[0].is_start
+                    const surahId = words[0].chapter_id
 
                     /**
                      * adds basmala if these conditions are met:
@@ -99,8 +100,7 @@ export function ReadingView({
                      *      - [Shaykh Abdul-Aziz Ibn Baz](https://binbaz.org.sa/fatwas/7171/%D9%85%D8%A7-%D8%B3%D8%A8%D8%A8-%D8%B9%D8%AF%D9%85-%D9%88%D8%AC%D9%88%D8%AF-%D8%A7%D9%84%D8%A8%D8%B3%D9%85%D9%84%D8%A9-%D9%81%D9%8A-%D8%B3%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%88%D8%A8%D8%A9)
                      *      - [Shaykh Othman Alkamees](https://youtu.be/P75vmy6YCzg)
                      */
-                    const shouldAddBasmala =
-                        isStartOfSurah && pageNumber >= 2 && words[0].chapter_id !== SURAH_ATTAWBAH_ID
+                    const shouldAddBasmala = isStartOfSurah && pageNumber >= 2 && surahId !== SURAH_ATTAWBAH_ID
 
                     return (
                         <Fragment key={`Page${page}-Line${lineIndex}`}>
@@ -113,7 +113,13 @@ export function ReadingView({
                             )}
                             {shouldCenter && lineIndex === 0 && words[0].chapter_id <= 2 && <FlexDiv />}
                             {shouldAddBasmala && <Basmala />}
-                            <Line page={pageNumber} words={words} lineKey={`Page${page}-AyahLine${lineIndex} `} />
+                            <Line
+                                page={pageNumber}
+                                words={words}
+                                lineKey={`Page${page}-AyahLine${lineIndex} `}
+                                surahId={surahId}
+                                lineId={lineIndex + 1}
+                            />
                         </Fragment>
                     )
                 })}
