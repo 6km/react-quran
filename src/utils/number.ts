@@ -2,6 +2,8 @@
  * Turns a number into a string
  */
 export function numberToString(number: string | number): string {
+    if (typeof number === 'string') return number
+
     return String(Number(number))
 }
 

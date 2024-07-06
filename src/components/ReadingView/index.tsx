@@ -2,9 +2,8 @@ import clipboardCopy from 'clipboard-copy'
 
 import { Fragment, useMemo } from 'react'
 import styled from 'styled-components'
-import _pagesData from '../../data/pages.json'
+import _pagesData from '../../data/pages-v2.json'
 import { PageDataType, ReadingViewProps, Verse } from '../../types'
-import { numberToString } from '../../utils/number'
 import { getLinesByVerses, getValidPageNumber } from '../../utils/page'
 import Basmala from './Basmala'
 import Line from './Line'
@@ -76,7 +75,8 @@ export function ReadingView({
 }: ReadingViewProps) {
     const [pageNumber, pageLines] = useMemo(() => {
         const pageNumber = getValidPageNumber(page)
-        const pageVerses: Verse[] = pagesData[numberToString(pageNumber)]
+        const pageIndex = pageNumber - 1
+        const pageVerses: Verse[] = pagesData[pageIndex]
         const pageLines = getLinesByVerses(pageVerses)
 
         return [pageNumber, pageLines]

@@ -1,14 +1,17 @@
 import { CSSProperties } from 'react'
 
-export type PageDataType = { [pageIndex: string]: Verse[] }
+export type PageDataType = Verse[][]
 
 export interface Verse {
-    // Verse number
-    v: number
-    // Chapter id
-    c: number
+    // Verse extra data; CHAPTER_VERSE (for example, 104_1)
+    d: string
     // Verse words
-    w: Word[]
+    w: PureWord[]
+}
+export type PureWord = {
+    uthmani: string
+    type?: 'word' | 'end' | string
+    line: number
 }
 
 export type Word = {
