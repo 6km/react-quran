@@ -85,7 +85,7 @@ This could not have been achieved without the grace of Allāh, who helped us to 
 
 ![resources](images/resources-logo.png "Logos of the resources")
 
-To conclude this, if you have any useful resources that can make this project better, please open an [issues](https://github.com/6km/react-quran/issues) and share it with us!
+If you have any useful resources that can make this project better, please open an [issues](https://github.com/6km/react-quran/issues) and share it with us!
 
 ## License
 
