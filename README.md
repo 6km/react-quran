@@ -26,7 +26,7 @@ pnpm add react-quran
 
 ## Features
 
-- ⚡ **High-Quality Text Rendering:**
+- 📦 **High-Quality Text Rendering:**
   Uses the official Hafs font of the Mushaf, avoiding the use of SVGs to ensure high-customizability.
 - 🎨 **Customizable Layout:**
   Easily adjust the styles to fit your app needs.
