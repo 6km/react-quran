@@ -1,5 +1,7 @@
-export default function Basmala(props: any) {
-    return (
+import { memo } from 'react'
+
+const Basmala = memo(
+    () => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlSpace="preserve"
@@ -7,8 +9,7 @@ export default function Basmala(props: any) {
             overflow="inherit"
             viewBox="0 0 176 36"
             style={{ marginBottom: '1cqi' }}
-            height="7cqi"
-            {...props}>
+            height="7cqi">
             <switch>
                 <g>
                     <path
@@ -18,5 +19,8 @@ export default function Basmala(props: any) {
                 </g>
             </switch>
         </svg>
-    )
-}
+    ),
+    () => true,
+)
+
+export default Basmala
