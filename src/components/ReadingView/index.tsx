@@ -15,12 +15,12 @@ const ViewContainer = styled.div<{ $fixedAspectRatio: boolean; $page: number }>`
     container-type: inline-size;
     direction: rtl !important;
 
-    ${({ $fixedAspectRatio, $page }) =>
-        $fixedAspectRatio ? 'aspect-ratio: 1/1.32;' : $page <= 2 && 'padding-bottom: 3cqi;'}
-
     * {
         direction: rtl !important;
     }
+
+    ${({ $fixedAspectRatio, $page }) =>
+        $fixedAspectRatio ? 'aspect-ratio: 1/1.32;' : $page <= 2 && 'padding-bottom: 3cqi;'}
 `
 
 const View = styled.div<{ $center: boolean }>`
