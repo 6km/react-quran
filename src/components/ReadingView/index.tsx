@@ -105,6 +105,8 @@ export function ReadingView({
             <View onCopy={onQuranTextCopy} {...viewStyleProps}>
                 {pageLines.map((words, lineIndex, { length }) => {
                     const { is_start: isStartOfSurah, chapter_id: surahId } = words[0]
+                    const isSurahAttawbah = surahId === SURAH_ATTAWBAH_ID
+                    const isFirstPage = pageNumber === 1
 
                     /**
                      * adds basmala if these conditions are met:
@@ -114,7 +116,7 @@ export function ReadingView({
                      *      - [Shaykh Abdul-Aziz Ibn Baz](https://binbaz.org.sa/fatwas/7171/%D9%85%D8%A7-%D8%B3%D8%A8%D8%A8-%D8%B9%D8%AF%D9%85-%D9%88%D8%AC%D9%88%D8%AF-%D8%A7%D9%84%D8%A8%D8%B3%D9%85%D9%84%D8%A9-%D9%81%D9%8A-%D8%B3%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%88%D8%A8%D8%A9)
                      *      - [Shaykh Othman Alkamees](https://youtu.be/P75vmy6YCzg)
                      */
-                    const shouldAddBasmala = isStartOfSurah && pageNumber !== 1 && surahId !== SURAH_ATTAWBAH_ID
+                    const shouldAddBasmala = isStartOfSurah && !isFirstPage && !isSurahAttawbah
 
                     return (
                         <Fragment key={`Page${page}-Line${lineIndex}`}>
