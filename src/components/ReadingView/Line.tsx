@@ -3,6 +3,7 @@ import QuranText from '../QuranText'
 import { CENTERED_PAGES_HORIZONTAL, MEDINA_MUSHAF_CENTERED_LINES } from '../../commons/constants'
 import { isSubset } from '../../utils/array'
 import { LineContainerStyleProps, LineProps } from '../../types'
+import { useMemo } from 'react'
 
 const LineContainer = styled.div<LineContainerStyleProps>`
     word-break: keep-all !important;
@@ -22,12 +23,21 @@ const LineContainer = styled.div<LineContainerStyleProps>`
 `
 
 export default function Line({ page, words, lineKey, surahId, lineId }: LineProps) {
-    const isCenteredInMushafAlMadinah = isSubset(MEDINA_MUSHAF_CENTERED_LINES, [surahId, page, lineId])
+    const isCenteredInMushafAlMadinah = useMemo(
+        () => isSubset(MEDINA_MUSHAF_CENTERED_LINES, [surahId, page, lineId]),
+        [surahId, page, lineId],
+    )
+
+    const lineContainerStyleProps = useMemo<LineContainerStyleProps>(
+        () => ({
+            $center: CENTERED_PAGES_HORIZONTAL.includes(page) || isCenteredInMushafAlMadinah,
+            $length: words.length,
+        }),
+        [isCenteredInMushafAlMadinah, page, words.length],
+    )
 
     return (
-        <LineContainer
-            $center={CENTERED_PAGES_HORIZONTAL.includes(page) || isCenteredInMushafAlMadinah}
-            $length={words.length}>
+        <LineContainer {...lineContainerStyleProps}>
             {words.map((word: { text_uthmani: string }, wordIndex) => (
                 <QuranText key={`${lineKey}-Word${wordIndex}`} text={word.text_uthmani} />
             ))}
