@@ -78,7 +78,7 @@ export function ReadingView({
         const pageNumber = getValidPageNumber(page)
         const pageIndex = pageNumber - 1
         const pageVerses: Verse[] = pagesData[pageIndex]
-        const pageLines = getLinesByVerses(pageVerses)
+        const pageLines = Object.values(getLinesByVerses(pageVerses))
 
         return [pageNumber, pageLines]
     }, [page])
@@ -89,7 +89,7 @@ export function ReadingView({
     return (
         <ViewContainer style={styles} $fixedAspectRatio={fixedAspectRatio} $page={pageNumber}>
             <View $center={shouldCenter} onCopy={onQuranTextCopy}>
-                {Object.values(pageLines).map((words, lineIndex, { length }) => {
+                {pageLines.map((words, lineIndex, { length }) => {
                     const isStartOfSurah = words[0].is_start
                     const surahId = words[0].chapter_id
 
