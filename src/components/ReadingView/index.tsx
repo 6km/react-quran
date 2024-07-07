@@ -104,8 +104,7 @@ export function ReadingView({
         <ViewContainer style={styles} {...viewContainerStyleProps}>
             <View onCopy={onQuranTextCopy} {...viewStyleProps}>
                 {pageLines.map((words, lineIndex, { length }) => {
-                    const isStartOfSurah = words[0].is_start
-                    const surahId = words[0].chapter_id
+                    const { is_start: isStartOfSurah, chapter_id: surahId } = words[0]
 
                     /**
                      * adds basmala if these conditions are met:
