@@ -1,16 +1,14 @@
-import clipboardCopy from 'clipboard-copy'
-
 import { Fragment, useMemo } from 'react'
+import clipboardCopy from 'clipboard-copy'
 import styled from 'styled-components'
-import _pagesData from '../../data/pages-v2.json'
-import { PageDataType, ReadingViewProps, Verse } from '../../types'
+
+import pagesData from '../../data/pages-v2.json'
+import { ReadingViewProps, Verse } from '../../types'
 import { getLinesByVerses, getValidPageNumber } from '../../utils/page'
 import Basmala from './Basmala'
 import Line from './Line'
 import SurahTitle from './SurahTitle'
 import { CENTERED_PAGES_VERTICAL, SURAH_ATTAWBAH_ID } from '../../commons/constants'
-
-const pagesData = _pagesData as PageDataType
 
 const ViewContainer = styled.div<{ $fixedAspectRatio: boolean; $page: number }>`
     width: 100%;
