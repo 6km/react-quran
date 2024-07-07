@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import QuranText from '../QuranText'
 import { CENTERED_PAGES_HORIZONTAL, MEDINA_MUSHAF_CENTERED_LINES } from '../../commons/constants'
 import { isSubset } from '../../utils/array'
+import { LineProps } from '../../types'
 
 const LineContainer = styled.div<{ $length: number; $center: boolean }>`
     word-break: keep-all !important;
@@ -20,19 +21,7 @@ const LineContainer = styled.div<{ $length: number; $center: boolean }>`
     flex: 1;
 `
 
-export default function Line({
-    page,
-    words,
-    lineKey,
-    surahId,
-    lineId,
-}: {
-    page: number
-    lineKey: string
-    words: { text_uthmani: string }[]
-    surahId: number
-    lineId: number
-}) {
+export default function Line({ page, words, lineKey, surahId, lineId }: LineProps) {
     const isCenteredInMushafAlMadinah = isSubset(MEDINA_MUSHAF_CENTERED_LINES, [surahId, page, lineId])
 
     return (

@@ -47,3 +47,25 @@ export type ReadingViewProps = {
      */
     fixedAspectRatio?: boolean
 }
+
+export type LineProps = {
+    page: number
+    lineKey: string
+    words: { text_uthmani: string }[]
+    surahId: number
+    lineId: number
+}
+
+/**
+ *
+ * Styled components props.
+ * They are mostly used to implement conditional styles.
+ *
+ */
+export type ViewContainerStyleProps = {
+    $fixedAspectRatio: boolean
+    $page: number
+}
+export type ViewStyleProps = {
+    $center: boolean
+}

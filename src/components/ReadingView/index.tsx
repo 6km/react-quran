@@ -3,14 +3,14 @@ import clipboardCopy from 'clipboard-copy'
 import styled from 'styled-components'
 
 import pagesData from '../../data/pages-v2.json'
-import { ReadingViewProps, Verse } from '../../types'
+import { ReadingViewProps, Verse, ViewContainerStyleProps, ViewStyleProps } from '../../types'
 import { getLinesByVerses, getValidPageNumber } from '../../utils/page'
 import Basmala from './Basmala'
 import Line from './Line'
 import SurahTitle from './SurahTitle'
 import { CENTERED_PAGES_VERTICAL, SURAH_ATTAWBAH_ID } from '../../commons/constants'
 
-const ViewContainer = styled.div<{ $fixedAspectRatio: boolean; $page: number }>`
+const ViewContainer = styled.div<ViewContainerStyleProps>`
     width: 100%;
     container-type: inline-size;
     direction: rtl !important;
@@ -23,7 +23,7 @@ const ViewContainer = styled.div<{ $fixedAspectRatio: boolean; $page: number }>`
         $fixedAspectRatio ? 'aspect-ratio: 1/1.32;' : $page <= 2 && 'padding-bottom: 3cqi;'}
 `
 
-const View = styled.div<{ $center: boolean }>`
+const View = styled.div<ViewStyleProps>`
     width: 100%;
     height: 100%;
     display: flex;
@@ -83,12 +83,26 @@ export function ReadingView({
         return [pageNumber, pageLines]
     }, [page])
 
-    const shouldCenter = CENTERED_PAGES_VERTICAL.includes(pageNumber)
     const styles = useMemo(() => ({ width: '440px', ...readingViewStyles }), [readingViewStyles])
 
+    const viewContainerStyleProps = useMemo<ViewContainerStyleProps>(
+        () => ({
+            $fixedAspectRatio: fixedAspectRatio,
+            $page: pageNumber,
+        }),
+        [fixedAspectRatio, pageNumber],
+    )
+
+    const viewStyleProps = useMemo<ViewStyleProps>(
+        () => ({
+            $center: CENTERED_PAGES_VERTICAL.includes(pageNumber),
+        }),
+        [pageNumber],
+    )
+
     return (
-        <ViewContainer style={styles} $fixedAspectRatio={fixedAspectRatio} $page={pageNumber}>
-            <View $center={shouldCenter} onCopy={onQuranTextCopy}>
+        <ViewContainer style={styles} {...viewContainerStyleProps}>
+            <View onCopy={onQuranTextCopy} {...viewStyleProps}>
                 {pageLines.map((words, lineIndex, { length }) => {
                     const isStartOfSurah = words[0].is_start
                     const surahId = words[0].chapter_id
@@ -112,7 +126,7 @@ export function ReadingView({
                                     surahTitleStyles={surahTitleStyles}
                                 />
                             )}
-                            {shouldCenter && lineIndex === 0 && words[0].chapter_id <= 2 && <FlexDiv />}
+                            {viewStyleProps.$center && lineIndex === 0 && words[0].chapter_id <= 2 && <FlexDiv />}
                             {shouldAddBasmala && <Basmala />}
                             <Line
                                 page={pageNumber}
@@ -125,7 +139,7 @@ export function ReadingView({
                     )
                 })}
 
-                {shouldCenter && <FlexDiv />}
+                {viewStyleProps.$center && <FlexDiv />}
             </View>
         </ViewContainer>
     )
