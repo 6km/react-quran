@@ -69,3 +69,7 @@ export type ViewContainerStyleProps = {
 export type ViewStyleProps = {
     $center: boolean
 }
+export type LineContainerStyleProps = {
+    $length: number
+    $center: boolean
+}

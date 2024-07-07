@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import QuranText from '../QuranText'
 import { CENTERED_PAGES_HORIZONTAL, MEDINA_MUSHAF_CENTERED_LINES } from '../../commons/constants'
 import { isSubset } from '../../utils/array'
-import { LineProps } from '../../types'
+import { LineContainerStyleProps, LineProps } from '../../types'
 
-const LineContainer = styled.div<{ $length: number; $center: boolean }>`
+const LineContainer = styled.div<LineContainerStyleProps>`
     word-break: keep-all !important;
     line-height: 7.6cqi;
     font-size: ${props => (props.$length >= 10 ? '5cqi' : '5.5cqi')};
