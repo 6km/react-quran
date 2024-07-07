@@ -12,9 +12,11 @@ import { CENTERED_PAGES_VERTICAL, SURAH_ATTAWBAH_ID } from '../../commons/consta
 
 const ViewContainer = styled.div<{ $fixedAspectRatio: boolean; $page: number }>`
     width: 100%;
-    ${props => (props.$fixedAspectRatio ? 'aspect-ratio: 1/1.32;' : props.$page <= 2 ? 'padding-bottom: 3cqi;' : '')}
     container-type: inline-size;
     direction: rtl !important;
+
+    ${({ $fixedAspectRatio, $page }) =>
+        $fixedAspectRatio ? 'aspect-ratio: 1/1.32;' : $page <= 2 && 'padding-bottom: 3cqi;'}
 
     * {
         direction: rtl !important;
