@@ -7,15 +7,14 @@ const LineContainer = styled.div<{ $length: number; $center: boolean }>`
     word-break: keep-all !important;
     line-height: 7.6cqi;
     font-size: ${props => (props.$length >= 10 ? '5cqi' : '5.5cqi')};
+    text-align: ${props => (props.$center ? 'center' : 'justify')};
 
     width: 100%;
-    text-align: ${props => (props.$center ? 'center' : 'justify')};
     display: flex;
     justify-content: ${props => (props.$center ? 'center' : 'space-between')};
     margin-top: 0.5cqi;
     gap: ${props => (props.$center ? '0.6cqi' : '0.02cqi')};
     flex-wrap: nowrap;
-
     padding: 0px 3px;
     box-sizing: border-box;
     flex: 1;

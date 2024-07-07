@@ -4,9 +4,7 @@ const Text = styled.span`
     font-family: 'quran-font_react-quran';
     font-weight: normal;
     font-style: normal;
-
     white-space: nowrap !important;
-
     text-transform: none !important;
 `
 

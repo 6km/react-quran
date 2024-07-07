@@ -24,10 +24,11 @@ const ViewContainer = styled.div<{ $fixedAspectRatio: boolean; $page: number }>`
 const View = styled.div<{ $center: boolean }>`
     width: 100%;
     height: 100%;
-    text-align: justify;
     display: flex;
     flex-direction: column;
     justify-content: ${props => (props.$center ? 'center' : 'inherit')};
+
+    text-align: justify;
 
     & > .surah-title:first-child {
         margin-top: 0;
