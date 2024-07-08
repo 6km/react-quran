@@ -119,7 +119,7 @@ export function ReadingView({
                     const shouldAddBasmala = isStartOfSurah && !isFirstPage && !isSurahAttawbah
 
                     return (
-                        <Fragment key={`Page${page}-Line${lineIndex}`}>
+                        <Fragment key={`page${page}-line${lineIndex}`}>
                             {isStartOfSurah && (
                                 <SurahTitle
                                     linesLength={length}
@@ -132,7 +132,7 @@ export function ReadingView({
                             <Line
                                 page={pageNumber}
                                 words={words}
-                                lineKey={`Page${page}-AyahLine${lineIndex} `}
+                                lineKey={`page${page}-ayahLine${lineIndex} `}
                                 surahId={surahId}
                                 lineId={lineIndex + 1}
                             />

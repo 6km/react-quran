@@ -39,7 +39,7 @@ export default function Line({ page, words, lineKey, surahId, lineId }: LineProp
     return (
         <LineContainer {...lineContainerStyleProps}>
             {words.map((word: { text_uthmani: string }, wordIndex) => (
-                <QuranText key={`${lineKey}-Word${wordIndex}`} text={word.text_uthmani} />
+                <QuranText key={`${lineKey}-word${wordIndex}`} text={word.text_uthmani} />
             ))}
         </LineContainer>
     )
