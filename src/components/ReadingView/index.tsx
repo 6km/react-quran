@@ -127,7 +127,7 @@ export function ReadingView({
                                     surahTitleStyles={surahTitleStyles}
                                 />
                             )}
-                            {viewStyleProps.$center && lineIndex === 0 && words[0].chapter_id <= 2 && <FlexDiv />}
+                            {viewStyleProps.$center && lineIndex === 0 && <FlexDiv />}
                             {shouldAddBasmala && <Basmala />}
                             <Line
                                 page={pageNumber}
