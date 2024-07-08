@@ -76,8 +76,7 @@ export function ReadingView({
 }: ReadingViewProps) {
     const [pageNumber, pageLines] = useMemo(() => {
         const pageNumber = getValidPageNumber(page)
-        const pageIndex = pageNumber - 1
-        const pageVerses: Verse[] = pagesData[pageIndex]
+        const pageVerses: Verse[] = pagesData[pageNumber - 1]
         const pageLines = Object.values(getLinesByVerses(pageVerses))
 
         return [pageNumber, pageLines]
