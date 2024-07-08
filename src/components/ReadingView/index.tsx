@@ -1,4 +1,4 @@
-import { Fragment, useMemo } from 'react'
+import { Fragment, memo, useMemo } from 'react'
 import clipboardCopy from 'clipboard-copy'
 import styled from 'styled-components'
 
@@ -9,6 +9,7 @@ import Basmala from './Basmala'
 import Line from './Line'
 import SurahTitle from './SurahTitle'
 import { CENTERED_PAGES_VERTICAL, SURAH_ATTAWBAH_ID } from '../../commons/constants'
+import { isDeepEqual } from '../../utils/array'
 
 const ViewContainer = styled.div<ViewContainerStyleProps>`
     width: 100%;
@@ -68,7 +69,7 @@ const onQuranTextCopy = (event: React.ClipboardEvent<HTMLDivElement>) => {
 /**
  * Renders a page of quran
  */
-export function ReadingView({
+export const ReadingView = memo(function ReadingView({
     page = 1,
     readingViewStyles = {},
     surahTitleStyles = {},
@@ -139,4 +140,4 @@ export function ReadingView({
             </View>
         </ViewContainer>
     )
-}
+}, isDeepEqual)
