@@ -19,34 +19,43 @@ export function groupBy<T>(values: T[], key: keyof T): Record<string, T[]> {
 }
 
 /**
- * Deeply check if two arrays are equal
+ * Deeply check if two values are equal
  */
-export function isDeepEqual(array1: any[], array2: any[]) {
-    if (array1.length !== array2.length) return false
+export function isDeepEqual(value1: any, value2: any): boolean {
+    // check if both values are of the same type
+    if (typeof value1 !== typeof value2) return false
 
-    // both of the items are arrays.
-    // both of the arrays are empty.
-    // so they're equal.
-    if (Array.isArray(array1) && Array.isArray(array2) && [array1.length, array2.length].every(n => n == 0)) return true
+    // if both values are objects (including arrays), handle them separately
+    if (typeof value1 === 'object' && value1 !== null && value2 !== null) {
+        // check if both values are arrays
+        if (Array.isArray(value1) && Array.isArray(value2)) {
+            if (value1.length !== value2.length) return false
 
-    // iterate through all of the elements and check if they're equal
-    for (let i = 0; i < array1.length; i++) {
-        const element1 = array1[i]
-        const element2 = array2[i]
+            // iterate through the array elements and check equality
+            for (let i = 0; i < value1.length; i++) {
+                if (!isDeepEqual(value1[i], value2[i])) return false
+            }
+            return true
+        }
 
-        // types of the elements are not equal.
-        // so they're not equal.
-        if (typeof element1 !== typeof element2) return false
+        // check if both values are objects (but not arrays)
+        if (!Array.isArray(value1) && !Array.isArray(value2)) {
+            const keys1 = Object.keys(value1)
+            const keys2 = Object.keys(value2)
 
-        // the element in array1 is an array/object.
-        // so check if it matches the same element in array2.
-        if (typeof element1 === 'object' && !isDeepEqual(element1, element2)) return false
+            if (keys1.length !== keys2.length) return false
 
-        // both of the elements are not equal
-        if (element1 !== element2) return false
+            // iterate through the object keys and check equality
+            for (const key of keys1) {
+                if (!Object.prototype.hasOwnProperty.call(value2, key)) return false
+                if (!isDeepEqual(value1[key], value2[key])) return false
+            }
+            return true
+        }
     }
 
-    return true
+    // for primitive types or non-object types, use strict equality
+    return value1 === value2
 }
 
 /**
