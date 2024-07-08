@@ -22,10 +22,10 @@ const LineContainer = styled.div<LineContainerStyleProps>`
     flex: 1;
 `
 
-export default function Line({ page, words, lineKey, surahId, lineId }: LineProps) {
+export default function Line({ page, words, surahId, lineNumber }: LineProps) {
     const isCenteredInMushafAlMadinah = useMemo(
-        () => isSubset(MEDINA_MUSHAF_CENTERED_LINES, [surahId, page, lineId]),
-        [surahId, page, lineId],
+        () => isSubset(MEDINA_MUSHAF_CENTERED_LINES, [surahId, page, lineNumber]),
+        [surahId, page, lineNumber],
     )
 
     const lineContainerStyleProps = useMemo<LineContainerStyleProps>(
@@ -39,7 +39,7 @@ export default function Line({ page, words, lineKey, surahId, lineId }: LineProp
     return (
         <LineContainer {...lineContainerStyleProps}>
             {words.map((word: { text_uthmani: string }, wordIndex) => (
-                <QuranText key={`${lineKey}-word${wordIndex}`} text={word.text_uthmani} />
+                <QuranText key={`page${page}-line${lineNumber}-word${wordIndex}`} text={word.text_uthmani} />
             ))}
         </LineContainer>
     )

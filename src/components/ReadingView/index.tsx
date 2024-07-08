@@ -118,8 +118,10 @@ export function ReadingView({
                      */
                     const shouldAddBasmala = isStartOfSurah && !isFirstPage && !isSurahAttawbah
 
+                    const lineNumber = lineIndex + 1
+
                     return (
-                        <Fragment key={`page${page}-line${lineIndex}`}>
+                        <Fragment key={`page${page}-line${lineNumber}`}>
                             {isStartOfSurah && (
                                 <SurahTitle
                                     linesLength={length}
@@ -127,15 +129,9 @@ export function ReadingView({
                                     surahTitleStyles={surahTitleStyles}
                                 />
                             )}
-                            {viewStyleProps.$center && lineIndex === 0 && <FlexDiv />}
+                            {viewStyleProps.$center && lineNumber === 1 && <FlexDiv />}
                             {shouldAddBasmala && <Basmala />}
-                            <Line
-                                page={pageNumber}
-                                words={words}
-                                lineKey={`page${page}-ayahLine${lineIndex} `}
-                                surahId={surahId}
-                                lineId={lineIndex + 1}
-                            />
+                            <Line page={pageNumber} words={words} surahId={surahId} lineNumber={lineNumber} />
                         </Fragment>
                     )
                 })}
