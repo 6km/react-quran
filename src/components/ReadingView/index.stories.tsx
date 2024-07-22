@@ -19,8 +19,17 @@ export const Default: Story = {
         readingViewStyles: {
             width: '512px',
             maxWidth: '100%',
-            backgroundColor: 'hsl(200 5% 90% / 1)',
+            // backgroundColor: 'hsl(0 0% 95% / 1)',
+            backgroundColor: '#F3F4F5',
+            border: '1px solid rgba(0,0,0,0.1)',
+            // backgroundColor: '#292C2E',
+            color: '#121212',
             borderRadius: 8,
+            overflow: 'hidden',
+        },
+        surahTitleStyles: {
+            borderColor: 'rgba(0,0,0,0.075)',
+            backgroundColor: 'rgba(200,200,200,0.25)',
         },
         fixedAspectRatio: true,
     },
