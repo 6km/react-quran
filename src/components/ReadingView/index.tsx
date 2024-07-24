@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import pagesData from '../../data/pages-v2.json'
 import { ReadingViewProps, Verse, ViewContainerStyleProps, ViewStyleProps } from '../../types'
 import { getLinesByVerses, getValidPageNumber } from '../../utils/page'
-import Basmala from './Basmala'
+import Basmala from '../Basmala'
 import Line from './Line'
 import SurahTitle from './SurahTitle'
 import { CENTERED_PAGES_VERTICAL, SURAH_ATTAWBAH_ID } from '../../commons/constants'
@@ -133,7 +133,7 @@ export const ReadingView = memo(function ReadingView({
                                 />
                             )}
                             {viewStyleProps.$center && lineNumber === 1 && <FlexDiv />}
-                            {shouldAddBasmala && <Basmala />}
+                            {shouldAddBasmala && <Basmala height="7cqi" style={{ marginBottom: '1cqi' }} />}
                             <Line page={pageNumber} words={words} surahId={surahId} lineNumber={lineNumber} />
                         </Fragment>
                     )
