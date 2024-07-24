@@ -9,6 +9,7 @@ const LineContainer = styled.div<LineContainerStyleProps>`
     word-break: keep-all !important;
     line-height: 7.6cqi;
     font-size: ${props => (props.$length >= 10 ? '5cqi' : '5.5cqi')};
+    // font-size: 5.36cqi;
     text-align: ${props => (props.$center ? 'center' : 'justify')};
 
     width: 100%;
