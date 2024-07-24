@@ -29,4 +29,14 @@ export const Default: Story = {
         },
         fixedAspectRatio: true,
     },
+    argTypes: {
+        page: { type: 'number' },
+        readingViewStyles: {
+            control: 'object',
+        },
+        surahTitleStyles: {
+            control: 'object',
+        },
+        fixedAspectRatio: { type: 'boolean' },
+    },
 }
