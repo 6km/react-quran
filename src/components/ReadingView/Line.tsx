@@ -8,17 +8,18 @@ import { useMemo } from 'react'
 const LineContainer = styled.div<LineContainerStyleProps>`
     word-break: keep-all !important;
     line-height: 7.6cqi;
-    font-size: ${props => (props.$length >= 10 ? '4.96cqi' : '5.28cqi')};
+    font-size: ${props => (props.$length >= 10 ? '4.96cqi' : '5.16cqi')};
     // font-size: 5.36cqi;
-    text-align: ${props => (props.$center ? 'center' : 'justify')};
+    text-align: ${props => (props.$center ? 'center' : 'center')};
 
-    width: 100%;
+    // width: 99.6%;
     display: flex;
     justify-content: ${props => (props.$center ? 'center' : 'space-between')};
+    align-items: center;
     margin-top: 0.5cqi;
     gap: ${props => (props.$center ? '0.6cqi' : '0.02cqi')};
     flex-wrap: nowrap;
-    padding: 0px 3px;
+    padding: 0px 1.24cqi;
     box-sizing: border-box;
     flex: 1;
 `
