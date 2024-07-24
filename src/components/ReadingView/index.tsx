@@ -30,12 +30,15 @@ const View = styled.div<ViewStyleProps>`
     display: flex;
     flex-direction: column;
     justify-content: ${props => (props.$center ? 'center' : 'inherit')};
+    align-items: stretch;
+    padding: 1cqi 0;
 
     text-align: justify;
 
     & > .surah-title:first-child {
-        margin-top: 0;
-        border-top-width: 0;
+        // margin-top: 0;
+        margin-top: -1cqi !important;
+        border-top-width: 0 !important;
     }
 `
 
@@ -83,7 +86,7 @@ export const ReadingView = memo(function ReadingView({
         return [pageNumber, pageLines]
     }, [page])
 
-    const styles = useMemo(() => ({ width: '440px', ...readingViewStyles }), [readingViewStyles])
+    const styles = useMemo(() => ({ width: '440px', ...readingViewStyles, overflow: 'visible' }), [readingViewStyles])
 
     const viewContainerStyleProps = useMemo<ViewContainerStyleProps>(
         () => ({
