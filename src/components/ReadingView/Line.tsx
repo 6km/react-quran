@@ -4,6 +4,7 @@ import { CENTERED_PAGES_HORIZONTAL, MEDINA_MUSHAF_CENTERED_LINES } from '../../c
 import { isSubset } from '../../utils/array'
 import { LineContainerStyleProps, LineProps } from '../../types'
 import { useMemo } from 'react'
+import { isArabicDigits } from '../../utils/string'
 
 const LineContainer = styled.div<LineContainerStyleProps>`
     word-break: keep-all !important;
@@ -40,9 +41,18 @@ export default function Line({ page, words, surahId, lineNumber }: LineProps) {
 
     return (
         <LineContainer {...lineContainerStyleProps}>
-            {words.map((word: { text_uthmani: string }, wordIndex) => (
-                <QuranText key={`page${page}-line${lineNumber}-word${wordIndex}`} text={word.text_uthmani} />
-            ))}
+            {words.map((word: { text_uthmani: string }, wordIndex) => {
+                const isAyahMarker = isArabicDigits(word.text_uthmani)
+                const charClass = isAyahMarker ? `react-quran_ayah-marker` : 'react-quran_ayah-word'
+
+                return (
+                    <QuranText
+                        className={charClass}
+                        key={`page${page}-line${lineNumber}-word${wordIndex}`}
+                        text={word.text_uthmani}
+                    />
+                )
+            })}
         </LineContainer>
     )
 }
