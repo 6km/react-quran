@@ -1,2 +1,2 @@
 export * from './ReadingView'
-export { default as Basmala } from '../components/Basmala'
+export { default as Basmalah } from '../components/Basmalah'

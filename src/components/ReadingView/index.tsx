@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import pagesData from '../../data/pages-v2.json'
 import { ReadingViewProps, Verse, ViewContainerStyleProps, ViewStyleProps } from '../../types'
 import { getLinesByVerses, getValidPageNumber } from '../../utils/page'
-import Basmala from '../Basmala'
+import Basmalah from '../Basmalah'
 import Line from './Line'
 import SurahTitle from './SurahTitle'
 import { CENTERED_PAGES_VERTICAL, SURAH_ATTAWBAH_ID } from '../../commons/constants'
@@ -112,14 +112,14 @@ export const ReadingView = memo(function ReadingView({
                     const isFirstPage = pageNumber === 1
 
                     /**
-                     * adds basmala if these conditions are met:
+                     * adds basmalah if these conditions are met:
                      * - start of the Surah (chapter).
                      * - not the 1st page because it already has basmalah; which is the first ayah (verse).
                      * - the Surah is not Al-Tawbah; explaination:
                      *      - [Shaykh Abdul-Aziz Ibn Baz](https://binbaz.org.sa/fatwas/7171/%D9%85%D8%A7-%D8%B3%D8%A8%D8%A8-%D8%B9%D8%AF%D9%85-%D9%88%D8%AC%D9%88%D8%AF-%D8%A7%D9%84%D8%A8%D8%B3%D9%85%D9%84%D8%A9-%D9%81%D9%8A-%D8%B3%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%88%D8%A8%D8%A9)
                      *      - [Shaykh Othman Alkamees](https://youtu.be/P75vmy6YCzg)
                      */
-                    const shouldAddBasmala = isStartOfSurah && !isFirstPage && !isSurahAttawbah
+                    const shouldAddBasmalah = isStartOfSurah && !isFirstPage && !isSurahAttawbah
 
                     const lineNumber = lineIndex + 1
 
@@ -133,7 +133,13 @@ export const ReadingView = memo(function ReadingView({
                                 />
                             )}
                             {viewStyleProps.$center && lineNumber === 1 && <FlexDiv />}
-                            {shouldAddBasmala && <Basmala height="7cqi" style={{ marginBottom: '1cqi' }} />}
+                            {shouldAddBasmalah && (
+                                <Basmalah
+                                    className="react-quran_basmalah"
+                                    height="7cqi"
+                                    style={{ marginBottom: '1cqi' }}
+                                />
+                            )}
                             <Line page={pageNumber} words={words} surahId={surahId} lineNumber={lineNumber} />
                         </Fragment>
                     )
