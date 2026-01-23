@@ -41,7 +41,7 @@ export default function Line({ page, words, surahId, lineNumber }: LineProps) {
 
     return (
         <LineContainer {...lineContainerStyleProps}>
-            {words.map((word: { text_uthmani: string }, wordIndex) => {
+            {words.map((word, wordIndex) => {
                 const isAyahMarker = isArabicDigits(word.text_uthmani)
                 const charClass = isAyahMarker ? `react-quran_ayah-marker` : 'react-quran_ayah-word'
 
@@ -50,6 +50,10 @@ export default function Line({ page, words, surahId, lineNumber }: LineProps) {
                         className={charClass}
                         key={`page${page}-line${lineNumber}-word${wordIndex}`}
                         text={word.text_uthmani}
+                        data={{
+                            chapter: word.chapter_id,
+                            verse: word.verse_number,
+                        }}
                     />
                 )
             })}
