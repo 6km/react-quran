@@ -50,7 +50,7 @@ export type ReadingViewProps = {
 
 export type LineProps = {
     page: number
-    words: { text_uthmani: string }[]
+    words: ProcessedWord[]
     surahId: number
     lineNumber: number
 }
