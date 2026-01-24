@@ -2,8 +2,6 @@ name: Publish to NPM
 
 on:
   workflow_dispatch:
-  # release:
-  #   types: [published]
 
 permissions:
   id-token: write
