@@ -30,7 +30,7 @@ export default function SurahTitle({
 }) {
     return (
         // class surah-title is old. it might get removed in future updates.
-        <SurahFrame className="react-quran_surah-title surah-title" $linesLength={linesLength} style={surahTitleStyles}>
+        <SurahFrame className="react-quran_surah-title surah-title" data-chapter={surahNumber} $linesLength={linesLength} style={surahTitleStyles}>
             {'سورة '.concat(getChapterName(surahNumber))}
         </SurahFrame>
     )
