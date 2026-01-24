@@ -72,7 +72,7 @@ const onQuranTextCopy = (event: React.ClipboardEvent<HTMLDivElement>) => {
 /**
  * Renders a page of quran
  */
-export const ReadingView = memo(function ReadingView({
+const ReadingView = memo(function ReadingView({
     page = 1,
     readingViewStyles = {},
     surahTitleStyles = {},
@@ -150,3 +150,5 @@ export const ReadingView = memo(function ReadingView({
         </ViewContainer>
     )
 }, isDeepEqual)
+
+export default ReadingView
