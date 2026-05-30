@@ -16,7 +16,7 @@ function AyahUtilsDemo() {
                     <p style={{ margin: '0.5rem 0' }}>
                         {ayah.surahName} — آية {ayah.ayah}
                     </p>
-                    <AyahView verse={ayah.verse} />
+                    <AyahView surah={1} ayah={1} />
                     <p style={{ fontSize: '0.85em', opacity: 0.8 }}>{ayah.text}</p>
                 </>
             ) : (

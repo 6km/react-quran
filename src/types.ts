@@ -74,8 +74,10 @@ export type LineContainerStyleProps = {
 }
 
 export type AyahViewProps = {
-    /** A single verse (ayah) with `d` (e.g. "104_1") and `w` (words) */
-    verse: Verse
+    /** Surah number (1–114) */
+    surah: number
+    /** Ayah number within the surah */
+    ayah: number
     /** Optional container styles */
     style?: CSSProperties
     /** Optional className for the root element */
@@ -91,7 +93,7 @@ export type AyahResult = {
     surahName: string
     /** Ayah number within the surah */
     ayah: number
-    /** Raw verse for AyahView or further use */
+    /** Raw verse for further use */
     verse: Verse
 }
 

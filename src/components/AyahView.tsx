@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import QuranText from './QuranText'
 import { AyahViewProps } from '../types'
+import { getAyah } from '../utils/ayah'
 import { getProcessedWordsFromVerse } from '../utils/page'
 import { isArabicDigits } from '../utils/string'
 import { isDeepEqual } from '../utils/array'
@@ -40,8 +41,15 @@ const onQuranTextCopy = (event: React.ClipboardEvent<HTMLDivElement>) => {
 /**
  * Renders a single ayah (verse) using the same font and word styling as ReadingView.
  */
-const AyahView = memo(function AyahView({ verse, style = {}, className = '' }: AyahViewProps) {
-    const words = useMemo(() => getProcessedWordsFromVerse(verse), [verse])
+const AyahView = memo(function AyahView({ surah, ayah, style = {}, className = '' }: AyahViewProps) {
+    const words = useMemo(() => {
+        const result = getAyah(surah, ayah)
+        return result ? getProcessedWordsFromVerse(result.verse) : []
+    }, [surah, ayah])
+
+    if (words.length === 0) {
+        return null
+    }
 
     return (
         <AyahContainer
