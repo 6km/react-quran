@@ -4,6 +4,23 @@ import { groupBy } from './array'
 import { stringToNumber } from './string'
 
 /**
+ * Convert a single verse to an array of ProcessedWord.
+ */
+export function getProcessedWordsFromVerse(verse: Verse): ProcessedWord[] {
+    const { w: words, d: verse_data } = verse
+    const [chapter_id, verse_number] = verse_data.split('_').map(stringToNumber)
+
+    return words.map(({ uthmani: text_uthmani, line, type }, index) => ({
+        chapter_id,
+        verse_number,
+        is_start: verse_number === 1 && index === 0,
+        text_uthmani,
+        line,
+        type: type || 'word',
+    }))
+}
+
+/**
  * Convert a page number into a string and ensure it's a valid page number.
  */
 export function getValidPageNumber(number: number | string = 1) {

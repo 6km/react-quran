@@ -72,3 +72,34 @@ export type LineContainerStyleProps = {
     $length: number
     $center: boolean
 }
+
+export type AyahViewProps = {
+    /** Surah number (1–114) */
+    surah: number
+    /** Ayah number within the surah */
+    ayah: number
+    /** Optional container styles */
+    style?: CSSProperties
+    /** Optional className for the root element */
+    className?: string
+}
+
+export type AyahResult = {
+    /** Full ayah text (words joined, end marker excluded) */
+    text: string
+    /** Surah number (1–114) */
+    surah: number
+    /** Arabic surah name from surah.json */
+    surahName: string
+    /** Ayah number within the surah */
+    ayah: number
+    /** Raw verse for further use */
+    verse: Verse
+}
+
+export type SearchAyahOptions = {
+    /** Max number of results to return */
+    limit?: number
+    /** Number of matching ayahs to skip (for pagination) */
+    offset?: number
+}
